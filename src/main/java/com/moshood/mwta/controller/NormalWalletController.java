@@ -84,7 +84,12 @@ public class NormalWalletController {
 	@Operation(summary = "withdraw money from your wallet", description = " Withdraw Money from your wallet")
 	public ResponseEntity<ApiResponse> withdrawFromWallet(@RequestBody TransactionDto transactionDto,
 			@RequestHeader("idempotency-key") String idempotencyKey) {
-		ApiResponse response = normalWalletService.withdrawFromWallet(transactionDto, idempotencyKey);
-		return ResponseEntity.ok(response);
+		try {
+			ApiResponse response = normalWalletService.withdrawFromWallet(transactionDto, idempotencyKey);
+			return ResponseEntity.ok(response);
+		} catch(DataIntegrityViolationException e) {
+			return ResponseEntity.ok(new ApiResponse(transactionDto.getReceiverId(), " This operation has been completed"));
+		}
+		
 	}
 }
