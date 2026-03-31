@@ -47,6 +47,12 @@ Assumption is made that Docker is available on the indivdual System
 
 ``sh git clone https://github.com/Mosh-py/MoshTransactionWallet.git && 
 cd MoshTransactionWallet ``
+build the image
+```bash docker build -t mosh-wallet-api:latest && docker run -p 8080:8080 mosh-wallet-api:latest```
+
+Alternatively , you can also pull the image from docker hub
+
+```bash docker pull moshpy/mosh-wallet:v1.0```
 
 ## API Documentation (Swagger)
 
@@ -56,9 +62,6 @@ http://localhost:8080/swagger-ui/index.html
 
 This provides a full interactive documentation of all endpoints, request bodies, and responses.
 
-
-``sh docker build -t mosh-wallet-api:latest &&
-docker run -p 8080:8080 mosh-wallet-api:latest``
 
 
 
