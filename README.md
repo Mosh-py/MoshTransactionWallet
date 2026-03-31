@@ -13,6 +13,8 @@ This application is a Wallet Transaction Service designed for a platform. It pro
 
 + History & Balances: View wallet balance and return paginated transaction history.
 
++ Clear Logging: Logging are done clearly and visibly as transactions are done, which supports audditing and monitoring
+
 + Reversals: Allow the reversal of a successful transaction exactly once, recorded as a separate transaction entry.
 ## Architecture & Design Principles
 
@@ -43,10 +45,10 @@ This application was designed with scalability, reliability, and maintainability
 ## Set up and Deployment Options
 Assumption is made that Docker is available on the indivdual System
 
-``sh git clone https://github.com/Mosh-py/MoshTransactionWallet.git
+``sh git clone https://github.com/Mosh-py/MoshTransactionWallet.git && 
 cd MoshTransactionWallet ``
 
-``sh docker build -t mosh-wallet-api:latest .
+``sh docker build -t mosh-wallet-api:latest &&
 docker run -p 8080:8080 mosh-wallet-api:latest``
 
 
